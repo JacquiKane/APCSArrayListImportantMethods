@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .boldface {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: larger;
+        }
+        
+        .card {
+            margin: 10px 10px;
+            height: 300px;
+        }
+        /* Flip Cards CSS */
+        
+        .card-container {
+            display: grid;
+            perspective: 700px;
+        }
+        
+        .card-flip {
+            display: grid;
+            grid-template: 1fr / 1fr;
+            grid-template-areas: "frontAndBack";
+            transform-style: preserve-3d;
+            transition: all 0.7s ease;
+        }
+        
+        .card-flip div {
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+        }
+        
+        .front {
+            grid-area: frontAndBack;
+        }
+        
+        .back {
+            grid-area: frontAndBack;
+            transform: rotateY(-180deg);
+        }
+        
+        .card-container:hover .card-flip {
+            transform: rotateY(180deg);
+        }
+        
+        .cardimage {
+            width: 75%;
+            height: 50px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cardblockformat {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="container">
+            <div class="row">
+
+                <!-- Card 0 -->
+                <div class="col-md-4 card-container">
+                    <div class="card-flip">
+                        <!-- Card 0 Front -->
+                        <div class="card front">
+                            <div class="card-header">
+                                Create An Empty ArrayList
+                            </div>
+                            <img class="cardimage img-fluid" src="images/alofplayers5.png" class="card-img-top img-fluid">
+                            <span class="fa fa-4x fa-smile-o text-center"></span>
+                            <div class="card-block cardblockformat">
+
+                                <h6 class="card-subtitle mb-2 text-muted text-center">ArrayList()</h6>
+                                <h6>Ready to store generic objects</h6>
+                                <img class="cardimage img-fluid" src="images/alofblobsconstructor.png" class="card-img-top img-fluid">
+
+                                <h6 class="card-subtitle mb-2 text-muted text-center">ArrayList&lt;E&gt;()</h6>
+                                <h6>Ready to store objects of specific class</h6>
+                                <img class="cardimage img-fluid" src="images/alofplayerseconstructor.png" class="card-img-top img-fluid">
+
+                            </div>
+                        </div>
+                        <!-- End Card 0 Front -->
+
+                        <!-- Card 0 Back -->
+                        <div class="card back">
+                            <div class="card-block cardblockformat">
+                                <div class="card-header">
+                                    Using ArrayList(), ArrayList&lt;E&gt;()
+                                </div>
+                                <!--          <h6 class="card-subtitle mb-2 text-muted">Create</h6>-->
+                                <p class="card-text">
+                                    <pre>
+// ArrayList of plain objects
+ArrayList someObjs = <b>new ArrayList();</b>
+
+// ArrayList of SoccerPlayer instances
+ArrayList&lt;SoccerPlayer&gt; allPlayers = 
+<b>new ArrayList&lt;SoccerPlayer&gt;();</b>
+
+
+
+                            </pre>
+                                </p>
+
+                            </div>
+                        </div>
+                        <!-- End Card 0 Back -->
+                    </div>
+                </div>
+                <!-- End Card 0 -->
+
+
+
+                <!-- Card 1 -->
+                <div class="col-md-4 card-container">
+                    <div class="card-flip">
+                        <!-- Card 1 Front -->
+                        <div class="card front">
+                            <div class="card-header">
+                                Get Number Of ArrayList Elements
+                            </div>
+                            <img class="cardimage img-fluid" src="images/alofplayers5.png" class="card-img-top img-fluid">
+                            <span class="fa fa-4x fa-smile-o text-center"></span>
+                            <div class="card-block cardblockformat">
+                                <h6 class="card-subtitle mb-2 text-muted text-center">size()</h6>
+                                <p class="card-text">Returns the number of elements in the ArrayList object. Useful for ArrayList traversal. </p>
+                                <img class="cardimage img-fluid" src="images/lastelement.png" class="card-img-top img-fluid">
+
+                            </div>
+                        </div>
+                        <!-- End Card 1 Front -->
+
+                        <!-- Card 1 Back -->
+                        <div class="card back">
+                            <div class="card-block cardblockformat">
+                                <div class="card-header">
+                                    Using size()
+                                </div>
+                                <p class="card-text">
+                                    <pre>
+    ArrayList&lt;SoccerPlayer&gt; allPlayers = 
+      new ArrayList&lt;SoccerPlayer&gt;();
+    allPlayers.add(player1);
+    allPlayers.add(player2);
+    allPlayers.add(player3);
+    allPlayers.add(player4);
+    allPlayers.add(player5);
+
+    <b>allPlayers.size()</b> returns 5!
+                                    </pre>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Card 1 Back -->
+                    </div>
+                </div>
+                <!-- End Card 1 -->
+
+                <!-- Card 2 -->
+                <div class="col-md-4 card-container">
+                    <div class="card-flip">
+                        <!-- Card 2 Front -->
+                        <div class="card front">
+                            <div class="card-header cardblockformat">
+                                Add Element To An ArrayList
+                            </div>
+                            <img src="images/addmethodal.png" class="card-img-top img-fluid cardimage">
+                            <div class="card-block">
+                                <h6 class="card-subtitle mb-2 text-muted text-center">add(E obj), add (int index, E obj)</h6>
+                                <p class="card-text">Adds element to end, or at index</p>
+                                <h6 class="card-subtitle mb-2 text-muted text-center">add(E obj)</h6>
+                                <img src="images/addmethodal1.png" class="card-img-top img-fluid cardimage">
+                                <h6 class="card-subtitle mb-2 text-muted text-center">add (int index, E obj)</h6>
+                                <img src="images/addmethodal2.png" class="card-img-top img-fluid cardimage">
+
+                            </div>
+                        </div>
+                        <!-- End Card 2 Front -->
+
+                        <!-- Card 2 Back -->
+                        <div class="card back">
+
+                            <div class="card-block cardblockformat">
+                                <div class="card-header">
+                                    Using add(E obj), add(int index, E obj)
+                                </div>
+                                <p class="card-text">
+                                    <pre>
+ArrayList&lt;SoccerPlayer&gt; allPlayers = 
+new ArrayList&lt;SoccerPlayer&gt;();</small>
+                              
+<b>add(player)</b> &sol;&sol; Adds player to end of ArrayList
+<b>add(2, player) </b>&sol;&sol; Adds player at index 2, shifts other elements right.
+                                        </pre>
+                            </div>
+                        </div>
+                        <!-- End Card 2 Back -->
+                    </div>
+                </div>
+                <!-- End Card 2 -->
+
+
+
+
+                <!-- Card 3 -->
+                <div class="col-md-4 card-container">
+                    <div class="card-flip">
+                        <!-- Card 3 Front -->
+                        <div class="card front">
+                            <div class="card-header">
+                                Retrieve Element From ArrayList
+                            </div>
+                            <img class="cardimage img-fluid" src="images/alofplayers5get.png" class="card-img-top img-fluid">
+                            <span class="fa fa-4x fa-smile-o text-center"></span>
+                            <div class="card-block cardblockformat">
+                                <h6 class="card-subtitle mb-2 text-muted text-center">E get(int index)</h6>
+                                <p class="card-text">Gets the element at specified index of ArrayList</p>
+                                <img class="cardimage img-fluid" src="images/getreturn.png" class="card-img-top img-fluid">
+                            </div>
+                        </div>
+                        <!-- End Card 3 Front -->
+
+                        <!-- Card 3 Back -->
+                        <div class="card back">
+                            <div class="card-block cardblockformat">
+                                <div class="card-header">
+                                    Using get(int index)
+                                </div>
+                                <p class="card-text">
+                                    <pre>
+ArrayList&lt;SoccerPlayer&gt; allPlayers = 
+new ArrayList&lt;SoccerPlayer&gt;();
+allPlayers.add(player1);
+allPlayers.add(player2);
+allPlayers.add(player3);
+allPlayers.add(player4);
+allPlayers.add(player5);
+
+<b>allPlayers.get(3)</b> returns player4!
+                    </pre>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Card 3 Back -->
+                    </div>
+                </div>
+                <!-- End Card 3 -->
+
+
+
+
+
+                <!-- Card 4 -->
+                <div class="col-md-4 card-container">
+                    <div class="card-flip">
+                        <!-- Card 4 Front -->
+                        <div class="card front">
+                            <div class="card-header">
+                                Set Element In ArrayList
+                            </div>
+                            <img class="cardimage img-fluid" src="images/alofplayersset.png" class="card-img-top img-fluid">
+                            <span class="fa fa-4x fa-smile-o text-center"></span>
+                            <div class="card-block cardblockformat">
+                                <h6 class="card-subtitle mb-2 text-muted text-center">E get(int index)</h6>
+                                <p class="card-text">Sets the element at specified index of ArrayList</p>
+                            </div>
+                            <img class="cardimage img-fluid" src="images/alofplayersset2.png" class="card-img-top img-fluid">
+                        </div>
+                        <!-- End Card 4 Front -->
+
+                        <!-- Card 4 Back -->
+                        <div class="card back">
+                            <div class="card-block cardblockformat">
+                                <div class="card-header">
+                                    Using set(int index, E obj)
+                                </div>
+                                <p class="card-text">
+                                    <pre>
+ArrayList&lt;SoccerPlayer&gt; allPlayers = 
+new ArrayList&lt;SoccerPlayer&gt;();
+allPlayers.add(player1);
+allPlayers.add(player2);
+allPlayers.add(player3);
+
+SoccerPlayer replacementPlayer = new SoccerPlayer();
+
+<b>allPlayers.set(1, replacementPlayer) </b>
+Returns player2! replacementPlayer replaces player4.
+                    </pre>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Card 4 Back -->
+                    </div>
+                </div>
+                <!-- End Card 4 -->
+
+
+
+                <!-- Card 5 -->
+                <div class="col-md-4 card-container">
+                    <div class="card-flip">
+                        <!-- Card 5 Front -->
+                        <div class="card front">
+                            <div class="card-header">
+                                Remove Element From ArrayList
+                            </div>
+                            <img class="cardimage img-fluid" src="images/alofplayersremove.png" class="card-img-top img-fluid">
+                            <span class="fa fa-4x fa-smile-o text-center"></span>
+                            <div class="card-block cardblockformat">
+                                <h6 class="card-subtitle mb-2 text-muted text-center">E remove(int index)</h6>
+                                <p class="card-text">Removes the element at specified index of ArrayList</p>
+                            </div>
+                            <img class="cardimage img-fluid" src="images/alofplayersremove2.png" class="card-img-top img-fluid">
+                        </div>
+                        <!-- End Card 5 Front -->
+
+                        <!-- Card 5 Back -->
+                        <div class="card back">
+                            <div class="card-block cardblockformat">
+                                <div class="card-header">
+                                    Using remove(int index)
+                                </div>
+                                <p class="card-text">
+                                    <pre>
+ArrayList&lt;SoccerPlayer&gt; allPlayers = 
+new ArrayList&lt;SoccerPlayer&gt;();
+allPlayers.add(player1);
+allPlayers.add(player2);
+allPlayers.add(player3);
+allPlayers.add(player4);
+allPlayers.add(player5);
+
+<b>allPlayers.remove(2)</b> returns player3! 
+Elements to right are shifted left.
+                    </pre>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Card 5 Back -->
+                    </div>
+                </div>
+                <!-- End Card 5 -->
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
