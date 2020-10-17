@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Recursion Examples</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
         .boldface {
@@ -61,11 +61,23 @@
         .cardblockformat {
             padding: 5px;
         }
+        
+        pre {
+            font-size: small !important;
+        }
+        
+        h3 {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: larger;
+            text-align: center;
+            font-weight: bolder;
+            font-style: italic;
+        }
     </style>
 </head>
 
 <body>
-
+    <h3>Mouse over the cards below and review the solution code!</h3>
     <div class="container">
         <div class="container">
             <div class="row">
@@ -76,21 +88,9 @@
                         <!-- Card 0 Front -->
                         <div class="card front">
                             <div class="card-header">
-                                Create An Empty ArrayList
+                                Binary String To Decimal
                             </div>
-                            <img class="cardimage img-fluid" src="images/alofplayers5.png" class="card-img-top img-fluid">
-                            <span class="fa fa-4x fa-smile-o text-center"></span>
-                            <div class="card-block cardblockformat">
-
-                                <h6 class="card-subtitle mb-2 text-muted text-center">ArrayList()</h6>
-                                <h6>Ready to store generic objects</h6>
-                                <img class="cardimage img-fluid" src="images/alofblobsconstructor.png" class="card-img-top img-fluid">
-
-                                <h6 class="card-subtitle mb-2 text-muted text-center">ArrayList&lt;E&gt;()</h6>
-                                <h6>Ready to store objects of specific class</h6>
-                                <img class="cardimage img-fluid" src="images/alofplayerseconstructor.png" class="card-img-top img-fluid">
-
-                            </div>
+                            <img class="card-image img-fluid" src="images/bintodecrecur.png">
                         </div>
                         <!-- End Card 0 Front -->
 
@@ -98,20 +98,21 @@
                         <div class="card back">
                             <div class="card-block cardblockformat">
                                 <div class="card-header">
-                                    Using ArrayList(), ArrayList&lt;E&gt;()
+                                    binary string -> decimal
                                 </div>
                                 <!--          <h6 class="card-subtitle mb-2 text-muted">Create</h6>-->
                                 <p class="card-text">
                                     <pre>
-// ArrayList of plain objects
-ArrayList someObjs = <b>new ArrayList();</b>
-
-// ArrayList of SoccerPlayer instances
-ArrayList&lt;SoccerPlayer&gt; allPlayers = 
-<b>new ArrayList&lt;SoccerPlayer&gt;();</b>
-
-
-
+public int binStringToDec(String binStr) {
+    // The base case
+    if (binStr.length() == 0) 
+        return 0;
+    // Recursive case
+    int first = Integer.parseInt(binStr.substring(0, 1));
+    String restOfBinNum = binStr.substring(1);
+    return ((int) Math.pow(2 * first, binStr.length() - 1)
+            + binStringToDec(restOfBinNum));
+}
                             </pre>
                                 </p>
 
@@ -130,16 +131,10 @@ ArrayList&lt;SoccerPlayer&gt; allPlayers =
                         <!-- Card 1 Front -->
                         <div class="card front">
                             <div class="card-header">
-                                Get Number Of ArrayList Elements
+                                Decimal to Binary String
                             </div>
-                            <img class="cardimage img-fluid" src="images/alofplayers5.png" class="card-img-top img-fluid">
-                            <span class="fa fa-4x fa-smile-o text-center"></span>
-                            <div class="card-block cardblockformat">
-                                <h6 class="card-subtitle mb-2 text-muted text-center">size()</h6>
-                                <p class="card-text">Returns the number of elements in the ArrayList object. Useful for ArrayList traversal. </p>
-                                <img class="cardimage img-fluid" src="images/lastelement.png" class="card-img-top img-fluid">
+                            <img class="card-image img-fluid" src="images/dectobinrecur.png" class="card-img-top img-fluid">
 
-                            </div>
                         </div>
                         <!-- End Card 1 Front -->
 
@@ -147,19 +142,21 @@ ArrayList&lt;SoccerPlayer&gt; allPlayers =
                         <div class="card back">
                             <div class="card-block cardblockformat">
                                 <div class="card-header">
-                                    Using size()
+                                    decimal to binary string
                                 </div>
                                 <p class="card-text">
                                     <pre>
-    ArrayList&lt;SoccerPlayer&gt; allPlayers = 
-      new ArrayList&lt;SoccerPlayer&gt;();
-    allPlayers.add(player1);
-    allPlayers.add(player2);
-    allPlayers.add(player3);
-    allPlayers.add(player4);
-    allPlayers.add(player5);
+public String decToBinString(int val) {
+    // Base case
+    if (val &lt;= 0) 
+        return "";
+    else { // Recursive case
+        int digit = val % 2;
+        return decToBinString(val / 2) + 
+                "" + digit;
+    }
 
-    <b>allPlayers.size()</b> returns 5!
+}
                                     </pre>
                                 </p>
                             </div>
@@ -175,16 +172,11 @@ ArrayList&lt;SoccerPlayer&gt; allPlayers =
                         <!-- Card 2 Front -->
                         <div class="card front">
                             <div class="card-header cardblockformat">
-                                Add Element To An ArrayList
+                                Palindrome?
                             </div>
-                            <img src="images/addmethodal.png" class="card-img-top img-fluid cardimage">
+                            <img src="images/pal.png" class="card-img-top img-fluid card-image">
                             <div class="card-block">
-                                <h6 class="card-subtitle mb-2 text-muted text-center">add(E obj), add (int index, E obj)</h6>
-                                <p class="card-text">Adds element to end, or at index</p>
-                                <h6 class="card-subtitle mb-2 text-muted text-center">add(E obj)</h6>
-                                <img src="images/addmethodal1.png" class="card-img-top img-fluid cardimage">
-                                <h6 class="card-subtitle mb-2 text-muted text-center">add (int index, E obj)</h6>
-                                <img src="images/addmethodal2.png" class="card-img-top img-fluid cardimage">
+
 
                             </div>
                         </div>
@@ -195,15 +187,20 @@ ArrayList&lt;SoccerPlayer&gt; allPlayers =
 
                             <div class="card-block cardblockformat">
                                 <div class="card-header">
-                                    Using add(E obj), add(int index, E obj)
+                                    is string a palindrome?
                                 </div>
-                                <p class="card-text">
-                                    <pre>
-ArrayList&lt;SoccerPlayer&gt; allPlayers = 
-new ArrayList&lt;SoccerPlayer&gt;();</small>
-                              
-<b>add(player)</b> &sol;&sol; Adds player to end of ArrayList
-<b>add(2, player) </b>&sol;&sol; Adds player at index 2, shifts other elements right.
+                                <pre>
+public boolean isPalindrome(String str)
+{   
+  if(str.length() == 0 || str.length() == 1) // Base case
+    return true; 
+    // Recursive case
+  String first = str.substring(0,1);
+  String last = str.substring(str.length()-1, str.length());
+  if(first.equals(last))
+   return isPalindrome(str.substring(1, str.length()-1));
+  return false;
+}
                                         </pre>
                             </div>
                         </div>
@@ -221,15 +218,11 @@ new ArrayList&lt;SoccerPlayer&gt;();</small>
                         <!-- Card 3 Front -->
                         <div class="card front">
                             <div class="card-header">
-                                Retrieve Element From ArrayList
+                                Pesky Consecutive Duplicates!
                             </div>
-                            <img class="cardimage img-fluid" src="images/alofplayers5get.png" class="card-img-top img-fluid">
+                            <img class="card-image img-fluid" src="images/dupsremover.png" class="card-img-top img-fluid">
                             <span class="fa fa-4x fa-smile-o text-center"></span>
-                            <div class="card-block cardblockformat">
-                                <h6 class="card-subtitle mb-2 text-muted text-center">E get(int index)</h6>
-                                <p class="card-text">Gets the element at specified index of ArrayList</p>
-                                <img class="cardimage img-fluid" src="images/getreturn.png" class="card-img-top img-fluid">
-                            </div>
+
                         </div>
                         <!-- End Card 3 Front -->
 
@@ -237,19 +230,21 @@ new ArrayList&lt;SoccerPlayer&gt;();</small>
                         <div class="card back">
                             <div class="card-block cardblockformat">
                                 <div class="card-header">
-                                    Using get(int index)
+                                    get rid of consecutive duplicates ...
                                 </div>
                                 <p class="card-text">
                                     <pre>
-ArrayList&lt;SoccerPlayer&gt; allPlayers = 
-new ArrayList&lt;SoccerPlayer&gt;();
-allPlayers.add(player1);
-allPlayers.add(player2);
-allPlayers.add(player3);
-allPlayers.add(player4);
-allPlayers.add(player5);
-
-<b>allPlayers.get(3)</b> returns player4!
+public String dupsRemover(String str) {
+ // Base case
+ if (str.length() &lt;= 1) 
+    return str;
+ // Recursive case
+ if (str.substring(0, 1).equals(str.substring(1, 2))) 
+    return dupsRemover(str.substring(1));    
+ else 
+    return str.substring(0, 1)
+     + dupsRemover(str.substring(1));
+}
                     </pre>
                                 </p>
                             </div>
@@ -269,15 +264,11 @@ allPlayers.add(player5);
                         <!-- Card 4 Front -->
                         <div class="card front">
                             <div class="card-header">
-                                Set Element In ArrayList
+                                Reverse Digits In Number
                             </div>
-                            <img class="cardimage img-fluid" src="images/alofplayersset.png" class="card-img-top img-fluid">
+                            <img class="card-image img-fluid" src="images/revnum.png" class="card-img-top img-fluid">
                             <span class="fa fa-4x fa-smile-o text-center"></span>
-                            <div class="card-block cardblockformat">
-                                <h6 class="card-subtitle mb-2 text-muted text-center">E get(int index)</h6>
-                                <p class="card-text">Sets the element at specified index of ArrayList</p>
-                            </div>
-                            <img class="cardimage img-fluid" src="images/alofplayersset2.png" class="card-img-top img-fluid">
+
                         </div>
                         <!-- End Card 4 Front -->
 
@@ -285,20 +276,20 @@ allPlayers.add(player5);
                         <div class="card back">
                             <div class="card-block cardblockformat">
                                 <div class="card-header">
-                                    Using set(int index, E obj)
+                                    reverse digits in number
                                 </div>
                                 <p class="card-text">
                                     <pre>
-ArrayList&lt;SoccerPlayer&gt; allPlayers = 
-new ArrayList&lt;SoccerPlayer&gt;();
-allPlayers.add(player1);
-allPlayers.add(player2);
-allPlayers.add(player3);
-
-SoccerPlayer replacementPlayer = new SoccerPlayer();
-
-<b>allPlayers.set(1, replacementPlayer) </b>
-Returns player2! replacementPlayer replaces player4.
+public int reverseNumber(int n, int totalDigits) {
+ if (n <= 9 ) // Base case
+    return n;
+ else { // Recursive case         
+    int lastDigit = n % 10;
+    int firstDigits = n/10;
+    return (int)((lastDigit*Math.pow(10, totalDigits-1) +
+       reverseNumber(firstDigits, totalDigits-1)));
+}
+}
                     </pre>
                                 </p>
                             </div>
@@ -316,15 +307,11 @@ Returns player2! replacementPlayer replaces player4.
                         <!-- Card 5 Front -->
                         <div class="card front">
                             <div class="card-header">
-                                Remove Element From ArrayList
+                                Reverse A String
                             </div>
-                            <img class="cardimage img-fluid" src="images/alofplayersremove.png" class="card-img-top img-fluid">
+                            <img class="card-image img-fluid" src="images/strrev.png" class="card-img-top img-fluid">
                             <span class="fa fa-4x fa-smile-o text-center"></span>
-                            <div class="card-block cardblockformat">
-                                <h6 class="card-subtitle mb-2 text-muted text-center">E remove(int index)</h6>
-                                <p class="card-text">Removes the element at specified index of ArrayList</p>
-                            </div>
-                            <img class="cardimage img-fluid" src="images/alofplayersremove2.png" class="card-img-top img-fluid">
+
                         </div>
                         <!-- End Card 5 Front -->
 
@@ -332,20 +319,18 @@ Returns player2! replacementPlayer replaces player4.
                         <div class="card back">
                             <div class="card-block cardblockformat">
                                 <div class="card-header">
-                                    Using remove(int index)
+                                    reverse a string
                                 </div>
                                 <p class="card-text">
                                     <pre>
-ArrayList&lt;SoccerPlayer&gt; allPlayers = 
-new ArrayList&lt;SoccerPlayer&gt;();
-allPlayers.add(player1);
-allPlayers.add(player2);
-allPlayers.add(player3);
-allPlayers.add(player4);
-allPlayers.add(player5);
+public String stringReverser(String str) {
+    if (str.length() <= 1) // Base case
+        return str;
 
-<b>allPlayers.remove(2)</b> returns player3! 
-Elements to right are shifted left.
+    // Recursive case
+    return stringReverser(str.substring(1)) + 
+                str.substring(0, 1);
+}
                     </pre>
                                 </p>
                             </div>
